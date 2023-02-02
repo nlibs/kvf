@@ -1,0 +1,9 @@
+{
+	"name": "@nlibs/kvf",
+	"version": "1.0.0",
+	"license": "MIT",
+	"main": "./kvf.js",
+	"dependencies": {
+		"sqlite": "github:nlibs/sqlite"
+	}
+}
