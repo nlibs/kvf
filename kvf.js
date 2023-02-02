@@ -20,7 +20,7 @@ class KVF
 		if (!this.is_binary) params.push(JSON.stringify(v));
 		else params.push(v);
 
-		this.db.write("REPLACE INTO data (k,v) VALUES (?,?)", params);
+		this.db.fast_write("REPLACE INTO data (k,v) VALUES (?,?)", params);
 	}
 
 	list_keys(prefix)
@@ -55,11 +55,12 @@ class KVF
 
 	del(k)
 	{
+		this.db.commit();
 		this.db.write("DELETE FROM data WHERE k = ?", k);
 	}
 
+	flush() { this.db.commit(); }
 	// these are left blank for API compatilbity with KV
-	flush() {}
 	remove_infrequent_keys() {}
 }
 
