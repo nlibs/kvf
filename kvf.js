@@ -23,7 +23,7 @@ class KVF
 		this.db.write("REPLACE INTO data (k,v) VALUES (?,?)", params);
 	}
 
-	list_keys(prefix)
+	list_keys(prefix)
 	{
 		var list = [];
 		var rows = this.db.read("SELECT k FROM data WHERE k LIKE (? || '%')", prefix);
