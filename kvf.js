@@ -41,7 +41,7 @@ class KVF
 
 	get(k, default_value)
 	{
-		v = this.db.read("SELECT v FROM data WHERE k = ?", k)[0];
+		var v = this.db.read("SELECT v FROM data WHERE k = ?", k)[0];
 		
 		if (typeof v == "undefined")
 			return default_value;
